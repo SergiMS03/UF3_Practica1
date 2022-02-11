@@ -6,8 +6,7 @@ import java.util.Scanner;
 /**
  * Llibreria d'utilitats
  *
- * @author Sergi
- * @version 1.5
+ * @author SergiMS03
  *
  */
 public class utils {

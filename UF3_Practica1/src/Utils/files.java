@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Utils;
 
 import java.io.BufferedReader;
@@ -15,7 +10,7 @@ import java.io.PrintWriter;
 
 /**
  *
- * @author CASA
+ * @author SergiMS03
  */
 public class files {
 
@@ -34,39 +29,39 @@ public class files {
         pw = new PrintWriter(writer);
     }
     
-    public static void FileReader(String adreca) throws FileNotFoundException, IOException {
-        declare_FR_BR(adreca);
-        String linea = buffer.readLine();
-        while (linea != null) {
-            System.out.println(linea);
-            linea = buffer.readLine();
+    public static void FileReader(String adress) throws FileNotFoundException, IOException {
+        declare_FR_BR(adress);
+        String line = buffer.readLine();
+        while (line != null) {
+            System.out.println(line);
+            line = buffer.readLine();
         }
         reader.close();
     }
 
-        public static void FileLineReader(String adreca, String missatge) throws FileNotFoundException, IOException {
-        int llegirLinea = utils.LlegirInt(missatge);
-        declare_FR_BR(adreca);
-        String line = "No s'ha trobat la linea que s'indica...";
-        int lineaActual = 1;
+        public static void FileLineReader(String adress, String message, String defaultResult) throws FileNotFoundException, IOException {
+        int llegirLinea = utils.LlegirInt(message);
+        declare_FR_BR(adress);
+        String line = defaultResult;
+        int currentLine = 1;
         do {
-            if (lineaActual == (llegirLinea)) {
+            if (currentLine == (llegirLinea)) {
                 line = buffer.readLine();
             }
-            lineaActual++;
+            currentLine++;
         } while (buffer.readLine() != null);
         System.out.println(line);
     }
     
-    public static void FileWriter(String adreca, String missatge, boolean sobreEscriure) throws IOException {
-        declare_FW_PW(adreca, sobreEscriure);
-        pw.println(missatge);
+    public static void FileWriter(String adress, String message, boolean dontOverwrite) throws IOException {
+        declare_FW_PW(adress, dontOverwrite);
+        pw.println(message);
         pw.flush();
         writer.close();
     }
 
-    public static void IfNotExistCreateFile(final String ADRECA) throws IOException {
-        File f = new File(ADRECA);
+    public static void IfNotExistCreateFile(final String adress) throws IOException {
+        File f = new File(adress);
         if (!f.exists()) {
             f.createNewFile();
         }

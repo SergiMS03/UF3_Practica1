@@ -13,7 +13,7 @@ import java.io.IOException;
 
 /**
  *
- * @author ausias
+ * @author Sergi i Mario
  */
 public class Enunciat3 {
 
@@ -44,7 +44,7 @@ public class Enunciat3 {
         int opc = utils.LlegirIntLimitat("Esculleix una opció: ", 0, 4);
         switch (opc) {
             case 1: files.FileReader("./textos.txt"); break;
-            case 2: files.FileLineReader(ADRECA, "Quina linea del fitxer vols llegir? "); break;
+            case 2: files.FileLineReader(ADRECA, "Quina linea del fitxer vols llegir? ", "No ha sigut posible trobar la linea indicada :("); break;
             case 3: IntroduirContingut(ADRECA); break;
             case 4: InsertarLineaInici(ADRECA); break;
         }
