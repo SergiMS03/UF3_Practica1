@@ -6,6 +6,7 @@ c) Si l’usuari escriu @ESBORRA, cal esborrar el contingut del fitxer.
  */
 package uf3_practica1;
 
+import Utils.files;
 import Utils.utils;
 import java.io.File;
 import java.io.IOException;
@@ -27,9 +28,9 @@ public class Enunciat2 {
         String missatge = (" ");
         while (!missatge.equals("")) {
             missatge = utils.LlegirString("");
-            utils.FileWriter("./exercici2.txt", missatge, true);
+            files.FileWriter("./exercici2.txt", missatge, true);
             if(missatge.equals("@ESBORRA")){
-                utils.FileWriter("./exercici2.txt", "", false);
+                files.FileWriter("./exercici2.txt", "", false);
             }
         }
     }

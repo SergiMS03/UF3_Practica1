@@ -4,6 +4,7 @@ Crea un programa que llegeixi frases per teclat i les vagi guardant en un fitxer
  */
 package uf3_practica1;
 
+import Utils.files;
 import Utils.utils;
 import java.io.IOException;
 
@@ -20,7 +21,7 @@ public class Enunciat1 {
         String missatge = (" ");
         while (!missatge.equals("")) {
             missatge = utils.LlegirString("");
-            utils.FileWriter("./textos.txt", missatge, true);
+            files.FileWriter("./textos.txt", missatge, true);
         }
     }
 

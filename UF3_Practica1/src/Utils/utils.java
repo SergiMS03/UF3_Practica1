@@ -1,12 +1,6 @@
 package Utils;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+
 import java.util.Scanner;
 
 /**
@@ -196,29 +190,6 @@ public class utils {
         return result;
     }
     
-    public static void FileReader(String adreca) throws FileNotFoundException, IOException{
-        File arxiu = new File(adreca);
-        FileReader reader = new FileReader(arxiu);
-        BufferedReader buffer = new BufferedReader(reader);
-        
-        String linea = buffer.readLine();
-        while (linea != null){
-            System.out.println(linea);
-            linea = buffer.readLine();
-        }
-        reader.close();
-    }
     
-    //https://stackhowto.com/how-to-read-a-specific-line-from-a-text-file-in-java/
-    
-        public static void FileWriter(String adreca, String missatge, boolean sobreEscriure) throws IOException{
-        File arxiu = new File(adreca);
-        FileWriter writer= new FileWriter(arxiu, sobreEscriure);
-        PrintWriter pw = new PrintWriter(writer);
-        
-        pw.println(missatge);
-        pw.flush();
-        writer.close();
-    }
     
 }

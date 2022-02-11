@@ -7,8 +7,8 @@ c) Inserti una línia al començament del fitxer
  */
 package uf3_practica1;
 
+import Utils.files;
 import Utils.utils;
-import java.io.File;
 import java.io.IOException;
 
 /**
@@ -23,52 +23,46 @@ public class Enunciat3 {
      */
     public static void main(String[] args) throws IOException {
         final String ADRECA = "./exercici2.txt";
-        File f = new File(ADRECA);
-        if (!f.exists()) {
-            f.createNewFile();
-        }
+        files.IfNotExistCreateFile(ADRECA);
+        int opc;
+        do{
         imprimirMenu();
-        elegirOpc(ADRECA);
-
-        utils.FileReader(ADRECA);
+        opc = elegirOpc(ADRECA);
+        }while(opc != 0);
+        System.out.println("Abandonant programa...");
     }
+
 
     private static void imprimirMenu() {
         System.out.println("1- Mostrar contingut");
         System.out.println("2- Mostrar linea");
         System.out.println("3- Insertar contingut");
         System.out.println("4- Insertar contigut inici");
-        System.out.println("Esculleix una opció: ");
     }
 
-    private static void elegirOpc(String ADRECA) throws IOException {
-        int opc = utils.LlegirInt();
+    private static int elegirOpc(String ADRECA) throws IOException {
+        int opc = utils.LlegirIntLimitat("Esculleix una opció: ", 0, 4);
         switch (opc) {
-            case 1:
-                utils.FileReader(ADRECA);
-                break;
-            case 2:
-                llegirLinea(ADRECA);
-                break;
-            case 3:
-                IntroduirContingut(ADRECA);
-                break;
+            case 1: files.FileReader("./textos.txt"); break;
+            case 2: files.FileLineReader(ADRECA, "Quina linea del fitxer vols llegir? "); break;
+            case 3: IntroduirContingut(ADRECA); break;
+            case 4: InsertarLineaInici(ADRECA); break;
         }
+        return opc;
     }
 
     static void IntroduirContingut(String ADRECA) throws IOException {
         String missatge = (" ");
         while (!missatge.equals("")) {
             missatge = utils.LlegirString("");
-            utils.FileWriter(ADRECA, missatge, true);
+            files.FileWriter(ADRECA, missatge, true);
             if (missatge.equals("@ESBORRA")) {
-                utils.FileWriter(ADRECA, "", false);
+                files.FileWriter(ADRECA, "", false);
             }
         }
     }
 
-    private static void llegirLinea(String ADRECA) {
-        
+    private static void InsertarLineaInici(String ADRECA) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
 }
