@@ -19,6 +19,7 @@ public class Enunciat2 {
 
     /**
      * @param args the command line arguments
+     * @throws java.io.IOException
      */
     public static void main(String[] args) throws IOException {
         File f= new File("./exercici2.txt");
